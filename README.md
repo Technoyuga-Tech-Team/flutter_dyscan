@@ -1,15 +1,10 @@
-# flutter_dyscan
+## Usage
 
-DyScan allows users on your mobile app to add their payment information more easily.
+This will add a line like this to your package's `pubspec.yaml` (and run an implicit `flutter pub get`):
 
-## Getting Started
-
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
-
-For help getting started with Flutter development, view the
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-
+```yaml
+dependencies:
+  flutter_dyscan:
+    git:
+      url: https://github.com/Technoyuga-Tech-Team/flutter_dyscan
+```
