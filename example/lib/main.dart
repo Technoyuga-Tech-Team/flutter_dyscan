@@ -28,8 +28,7 @@ class _CardScanScreenState extends State<CardScanScreen> {
   @override
   void initState() {
     super.initState();
-    _dyScan
-        .init('0UUwOUGO2OUnxwgX9QqGIKXkYXVRGvmZi1r9LxIYzEUQK35LrBHnvq8ExzoT');
+    _dyScan.init(''); // TODO Enter your DyScan apikey
   }
 
   void _showSnackBar(String message) {

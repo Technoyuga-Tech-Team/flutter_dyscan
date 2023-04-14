@@ -17,8 +17,8 @@ allprojects {
         mavenCentral()
         maven {
             credentials  {
-                username = "clubgrub"
-                password = "n5G5AyedfkhyTYx"
+                username = "" // TODO: Enter your username
+                password = "" // TODO: Enter your password
             }
             url "https://nexus.dyneti.com/repository/maven-releases/"
             authentication {
