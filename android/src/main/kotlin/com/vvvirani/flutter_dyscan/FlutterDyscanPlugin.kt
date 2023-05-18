@@ -38,9 +38,6 @@ class FlutterDyscanPlugin : FlutterPlugin, MethodCallHandler, ActivityAware,
             val apiKey = call.argument<String>("apiKey")
             if (apiKey != null) {
                 DyScan.init(context, apiKey)
-                binding.addActivityResultListener { requestCode, resultCode, data ->
-                    onActivityResult(requestCode, resultCode, data)
-                }
                 result.success(true)
             }
             result.success(false)
@@ -62,17 +59,29 @@ class FlutterDyscanPlugin : FlutterPlugin, MethodCallHandler, ActivityAware,
 
     override fun onAttachedToActivity(binding: ActivityPluginBinding) {
         this.binding = binding
-
+        binding.addActivityResultListener { requestCode, resultCode, data ->
+            onActivityResult(requestCode, resultCode, data)
+        }
     }
 
     override fun onDetachedFromActivityForConfigChanges() {
+        binding.removeActivityResultListener { requestCode, resultCode, data ->
+            onActivityResult(requestCode, resultCode, data)
+        }
     }
 
     override fun onReattachedToActivityForConfigChanges(binding: ActivityPluginBinding) {
         this.binding = binding
+        binding.addActivityResultListener { requestCode, resultCode, data ->
+            onActivityResult(requestCode, resultCode, data)
+        }
+
     }
 
     override fun onDetachedFromActivity() {
+        binding.removeActivityResultListener { requestCode, resultCode, data ->
+            onActivityResult(requestCode, resultCode, data)
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?): Boolean {
